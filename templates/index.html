@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<center>
+
+    <div style="color:rgb(6, 6, 12)">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1>Heart Attack Prediction</h1>
+            <br>
+            <br>
+
+            <h3 align="left">
+               Age
+            <input id="age" name="age" type="number " placeholder="Enter age" > 
+            </h3>
+            <h3 align="right"> Gender
+            <select name="sex" id="sex" required="required">
+                <option value="">Select</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </h3>
+            <h3 align="left">Chest pain type<select id="cp" name="cp" required="required">
+                <option value="1">Select</option>
+                <option value="0">low</option>
+                <option value="1">medium</option>
+                <option value="2">high</option>
+                </select>  </h3>
+                
+
+                <h3 align="right"> Resting Blood pressure 
+                    <input id="trestbps" name="trestbps" required="required" placeholder="Enter BP"> </h3>
+                    
+
+
+            <h3 align="left">Have you Blood Sugar?<select name="fbs" id="fbs" required="required">
+                <option value="0">Select</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            </h3>
+            
+
+            <h3 align="right">Blood Cholestoral in mg/dl<input id="chol" name="chol" required="required" placeholder="enter a value"></h3>
+            
+            <body> <h5 align="right">Average Blood Cholestoral in mg/dl is 246 </h5></body>
+                
+            <h3 align="left">maximum heart rate<input name="thalach" id="thalach" required="required" placeholder="enter a value"></h3>
+            
+            <body><h5 align="left">Average maximum heart rate is 149</h5></body>
+
+
+            
+
+            <h3 align="right">Exercise induced angina<select id="exang" name="exang" required="required">
+                <option value="0">Select</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+                </select>  </h3>
+
+
+                <h3 align="left">Number of major vessels<select id="ca" name="ca" required="required">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    </select>  </h3>
+
+                <h3 align="right">Thalassemia<select id="thal" name="thal" required="required">
+                        <option value="1">Normal</option>
+                        <option value="2">Fixed defect</option>
+                        <option value="3">Reversable defect</option>
+                        
+                        </select>  </h3>
+
+
+
+
+
+                    
+            <br><br><button id="sub" type="submit ">Predict</button>
+            <br>
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+    <div1 class="fixed">
+        Developed by SANDIP
+        </div1>
+        <div2 class="fixed">
+            <img src="heart.png" style="width:150px;height:150px;">
+            </div2>
+
+            <div3 class="fixed">
+                <img src="heart.png" style="width:150px;height:150px;">
+                </div3>
+
+
+
+
+    <style>
+div1.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  border: 3px solid #73AD21;
+}
+
+div2.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+ 
+}
+
+div3.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+ 
+}
+
+
+div {
+  background-color: lightgrey;
+  width: 800px;
+  border: 10px solid rgb(248, 53, 53);
+  padding: 20px;
+  margin: 50px;
+   
+  
+}
+
+
+        body {
+            background-color: rgb(78, 236, 241);
+            text-align: center;
+            padding: 0px;
+
+        }
+        
+        
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fbs {
+            width: 83px;
+            height: 43px;
+            text-align: left;
+            border-radius: 14px;
+            font-size: 20px;
+            position:relative
+        }
+
+        #cp {
+            width: 83px;
+            height: 43px;
+            text-align: left;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+
+        #exang {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+
+        #ca {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+
+        
+
+        #thal {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+
+        #sex {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #sex:hover {
+            background-color: coral;
+        }
+        
+        
+        
+        
+        
+        
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #age {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #thalach {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #cp {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #trestbps {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #chol {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+
+    </style>
+    </center>
+</body>
+
+</html>
