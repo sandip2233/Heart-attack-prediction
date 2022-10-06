@@ -30,9 +30,9 @@ def predict():
 
         prediction=model.predict([[age,sex,cp,trestbps,chol,fbs,thalach,exang,ca,thal]])
         output=prediction[0]
-        if output==0:
-            return render_template('index.html',prediction_text="You are Unlikely to have a heart attack")
         if output==1:
+            return render_template('index.html',prediction_text="You are Unlikely to have a heart attack")
+        if output==0:
             return render_template('index.html',prediction_text="You are likely to have a heart attack ")
 
 if __name__=="__main__":
